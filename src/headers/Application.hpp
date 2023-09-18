@@ -28,7 +28,7 @@ struct Application
 
 	Application() {}
 
-	Application(std::string window_title, sf::Vector2u window_size, sf::Vector2f view_size, unsigned int fps_target)
+	void create_window(std::string window_title, sf::Vector2u window_size, sf::Vector2f view_size, unsigned int fps_target)
 	{
 		this->fps_target = fps_target;
 		window.create({window_size.x, window_size.y}, window_title, sf::Style::Default);

@@ -43,12 +43,12 @@ struct Text
 		text.setScale(default_scale.x * scale.x, default_scale.y * scale.y);
 		sf::FloatRect bounds = text.getGlobalBounds();
 		position = align(horizontal_alignment, vertical_alignment, position, {bounds.width, bounds.height});
-		text.setPosition(position);
 
+		text.setPosition(position - sf::Vector2f(1, 1));
 		text.setFillColor(sf::Color::Black);
 		window->draw(text);
 
-		text.setPosition(position + sf::Vector2f(1, 1));
+		text.setPosition(position);
 		text.setFillColor(color);
 		window->draw(text);
 	}
