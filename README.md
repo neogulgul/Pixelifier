@@ -7,9 +7,9 @@ Use to specify colors file.
 ### -r width:height
 Use to specify resolution. Both width and height need to be between 1 and 2048. The resolution won't override the dimensions of the source image.
 ### -s
-Save pixelated image.
+Save Pixelated image.
 ### -S
-Save pixelated_colored image.
+Save Pixelated_Colored image.
 ### -headless
 Use to run the program headless (without a GUI).
 ###
@@ -25,10 +25,10 @@ Toggle debug mode.
 ### F12
 Take screenshot.
 ## Examples
-### ./Pixelifier -i example/fishin.jpg -c example/colors.txt -r 128:128
-Loads an example image and some colors with a resolution of 128x128.
-### ./Pixelifier -i example/fishin.jpg -c example/colors.txt -r 128:128 -s -S -headless
-Does the same as the previous command, but runs it headless and saves the image both as pixelated and pixelated_colored.
+### ./Pixelifier -i example/fishin.jpg -c example/sunset.txt -r 128:128
+Loads an image and some colors with a resolution of 128x128.
+### ./Pixelifier -i example/fishin.jpg -c example/sunset.txt -r 128:128 -s -S -headless
+Does the same as the previous command, but runs it headless and saves the image both as Pixelated and Pixelated_Colored.
 ## Notes
 ### Image file
 From the SFML 2.6.0 wiki:<br>

@@ -3,7 +3,7 @@
 #include "headers/Application.hpp"
 #include "headers/colors.hpp"
 
-#define __VERSION "1.0.0"
+#define __VERSION "1.0.1"
 #define __TITLE "Pixelifier"
 
 const std::string saves_directory = "saves";
@@ -160,7 +160,9 @@ void Game::draw()
 		   << "\n"
 		   << "Resolution string: " << resolution_string
 		   << "\n"
-		   << "Resolution: { x: " << resolution.x << ", y: " << resolution.y << " }"
+		   << "Pixelated resolution: { x: " << resolution.x << ", y: " << resolution.y << " }"
+		   << "\n"
+		   << "Source resolution: { x: " << image.getSize().x << ", y: " << image.getSize().y << " }"
 		   << "\n"
 		   << "Window size: { x: " << window.getSize().x << ", y: " << window.getSize().y << " }"
 		   << "\n"

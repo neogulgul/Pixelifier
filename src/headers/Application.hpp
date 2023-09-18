@@ -26,10 +26,7 @@ struct Application
 	utils::Press screenshot_press;
 	sf::Keyboard::Key screenshot_key = sf::Keyboard::Unknown;
 
-	Application()
-	{
-		update();
-	}
+	Application() {}
 
 	Application(std::string window_title, sf::Vector2u window_size, sf::Vector2f view_size, unsigned int fps_target)
 	{
