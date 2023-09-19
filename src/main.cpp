@@ -3,7 +3,7 @@
 #include "headers/Application.hpp"
 #include "headers/colors.hpp"
 
-#define __VERSION "1.0.2"
+#define __VERSION "1.0.3"
 #define __TITLE "Pixelifier"
 
 const std::string saves_directory = "saves";
@@ -430,7 +430,7 @@ int main(int argc, char* argv[])
 
 	bool valid_image            = false;
 	bool valid_colors           = false;
-	bool valid_resolution       = false;
+	bool invalid_resolution     = false;
 	bool invalid_args           = false;
 	bool save_pixelated         = false;
 	bool save_pixelated_colored = false;
@@ -468,25 +468,22 @@ int main(int argc, char* argv[])
 			if (resolution_string != "" || i + 1 == argc) continue;
 			resolution_string = argv[i + 1];
 
-			if (resolution_string == "source")
-				valid_resolution = true;
-			else
-			{
-				std::vector<std::string> split_string = utils::string_split(resolution_string, 'x');
-				if (split_string.size() == 2)
-				{
-					resolution = {
-						(unsigned)atoi(split_string[0].c_str()),
-						(unsigned)atoi(split_string[1].c_str())
-					};
+			invalid_resolution = true;
 
-					valid_resolution = (resolution.x <= max_resolution && resolution.x >= min_resolution
-					                    &&
-					                    resolution.y <= max_resolution && resolution.y >= min_resolution);
-				}
-				if (!valid_resolution)
-					print("The specified resolution is not valid.");
+			std::vector<std::string> split_string = utils::string_split(resolution_string, 'x');
+			if (split_string.size() == 2)
+			{
+				resolution = {
+					(unsigned)atoi(split_string[0].c_str()),
+					(unsigned)atoi(split_string[1].c_str())
+				};
+
+				invalid_resolution = (resolution.x > max_resolution || resolution.x < min_resolution
+				                      ||
+				                      resolution.y > max_resolution || resolution.y < min_resolution);
 			}
+			if (invalid_resolution)
+				print("The specified resolution is not valid.");
 			last_arg = i + 1;
 		}
 		else
@@ -531,15 +528,13 @@ int main(int argc, char* argv[])
 		print("Image not specified.");
 	if (colors_filepath == "")
 		print("Colors not specified.");
-	if (resolution_string == "")
-		print("Resolution not specified.");
 
 	sf::Image image;
 	std::string colors_file_content = fs::read_from_file(colors_filepath);
 
-	if (valid_image && valid_colors && valid_resolution && !invalid_args && image.loadFromFile(image_filepath))
+	if (valid_image && valid_colors && !invalid_resolution && !invalid_args && image.loadFromFile(image_filepath))
 	{
-		if (resolution_string == "source")
+		if (resolution_string == "")
 		{
 			resolution = image.getSize();
 		}
