@@ -30,7 +30,7 @@ Toggle debug mode.
 Take screenshot.
 ## Examples
 ### ./Pixelifier -i "example/serenity.jpg" -c "example/peanut_butter.txt"
-Loads an image and some colors with an output.
+An image and a colors file always need to be specified.
 ### ./Pixelifier -i "example/fishin.jpg" -c "example/ocean_sunset.txt" -r 128x128
 This time the resolution is set to 128x128.
 ### ./Pixelifier -i "example/commute.jpg" -c "example/forest_magic.txt" -r 160x90 -s -S -n -t -headless
@@ -48,6 +48,6 @@ There might be some bugs.
 ## About
 Made for fun with
 <a href="https://www.sfml-dev.org/">
-<img src="https://www.sfml-dev.org/download/goodies/sfml-logo-small.png" height=15>
+<img src="https://www.sfml-dev.org/download/goodies/sfml-logo-small.png" height=16>
 </a>
 .
