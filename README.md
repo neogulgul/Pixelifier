@@ -1,4 +1,5 @@
 # Pixelifier - Pixelate images
+<img src="demo.gif"><br>
 ## Command line arguments
 ### -i &lt;path/to/file&gt;
 Use to specify image file.

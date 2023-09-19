@@ -535,14 +535,10 @@ int main(int argc, char* argv[])
 	if (valid_image && valid_colors && !invalid_resolution && !invalid_args && image.loadFromFile(image_filepath))
 	{
 		if (resolution_string == "")
-		{
 			resolution = image.getSize();
-		}
 
 		if (headless)
-		{
 			Game game(image_filepath, image, colors_file_content, resolution, save_pixelated, save_pixelated_colored, save_name, print_time);
-		}
 		else
 		{
 			Game game(__TITLE, image.getSize(), {(float)image.getSize().x, (float)image.getSize().y}, 60,
